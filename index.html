@@ -248,5 +248,25 @@
 	<!-- Start of bodyEnd -->
     
     <!-- End of bodyEnd -->
+<script>
+(function() {
+  function fixLogoLinks() {
+    document.querySelectorAll('a.framer-dlDLb, a[data-framer-name="Desktop"]').forEach(function(a) {
+      if (a.getAttribute('href') === './' || a.getAttribute('href') === '') {
+        a.setAttribute('href', '#');
+        a.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+      }
+    });
+  }
+  // Run immediately and repeatedly until Framer finishes hydrating
+  fixLogoLinks();
+  setTimeout(fixLogoLinks, 500);
+  setTimeout(fixLogoLinks, 1000);
+  setTimeout(fixLogoLinks, 2000);
+  setTimeout(fixLogoLinks, 3000);
+  document.addEventListener('DOMContentLoaded', fixLogoLinks);
+  window.addEventListener('load', fixLogoLinks);
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,2 @@
+﻿import{t as e}from"./rolldown-runtime.BvHXOKAc.mjs";function t(e,t){return{description:`ShineSpace — A modern, eye-catching Framer template for social media influencers to showcase their personality, grow their audience, and attract brand collaborations.`,favicon:`../images/xSAgohLuWPdo7u0Z1b9sDX2C8.png`,robots:`max-image-preview:large`,socialImage:`../images/DMIbIzqmtv3XVF7PcFXXAjXSLIo.png`,title:`EveryMission`}}var n=e((()=>{}));export{t as n,n as t};
+//# sourceMappingURL=shared-lib.DOqYWsZ6.mjs.map

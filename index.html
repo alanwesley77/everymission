@@ -381,6 +381,16 @@
     document.querySelectorAll('div.framer-1yun8xh').forEach(function(el){
       el.style.setProperty('display','none','important');
     });
+    // 4. Quebras de linha exatas no hero (apenas mobile)
+    if (window.innerWidth <= 809) {
+      document.querySelectorAll('.framer-text').forEach(function(el){
+        if (el.textContent && el.textContent.indexOf('formação imersiva') >= 0) {
+          if (el.innerHTML.indexOf('<br') < 0) {
+            el.innerHTML = 'A formação imersiva e prática<br>em evangelismo e discipulado<br>da Every Home';
+          }
+        }
+      });
+    }
   }
 
   // Rodar imediatamente e após carregamento

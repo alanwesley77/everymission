@@ -301,7 +301,7 @@
       height: auto !important;
       min-height: 100vh !important;
       align-items: flex-end !important;
-      padding: 0 8px 64px 8px !important;
+      padding: 0 4px 64px 4px !important;
     }
     .framer-qa4idr {
       overflow: visible !important;
@@ -316,7 +316,7 @@
       flex-wrap: nowrap !important;
       align-items: center !important;
       align-content: center !important;
-      gap: 6px !important;
+      gap: 4px !important;
       height: auto !important;
       width: 100% !important;
       max-width: 100% !important;
@@ -365,10 +365,7 @@
 </style>
 <script id="custom-fixes">
 (function(){
-  var heroTextFixed = false;
-
   function applyFixes(){
-    // 1. Desabilitar logo (so uma vez)
     document.querySelectorAll('a.framer-dlDLb:not([data-fixed])').forEach(function(el){
       el.setAttribute('data-fixed','1');
       el.style.setProperty('pointer-events','none','important');
@@ -376,40 +373,31 @@
       el.removeAttribute('href');
       el.onclick = function(e){ e.preventDefault(); e.stopPropagation(); return false; };
     });
-    // 2. Esconder hamburger (so uma vez)
     document.querySelectorAll('button.framer-lahdh9:not([data-fixed])').forEach(function(el){
       el.setAttribute('data-fixed','1');
       el.style.setProperty('display','none','important');
     });
-    // 3. Esconder icone mobile (so uma vez)
     document.querySelectorAll('div.framer-1yun8xh:not([data-fixed])').forEach(function(el){
       el.setAttribute('data-fixed','1');
       el.style.setProperty('display','none','important');
     });
-    // 4. Quebras de linha no hero (apenas mobile, so uma vez)
-    if (!heroTextFixed && window.innerWidth <= 809) {
-      document.querySelectorAll('.framer-text').forEach(function(el){
-        if (!heroTextFixed && el.textContent && el.textContent.indexOf('formação imersiva') >= 0) {
-          heroTextFixed = true;
-          el.innerHTML = 'A formação imersiva e prática<br>em evangelismo e discipulado<br>da Every Home';
-        }
-      });
-    }
+    // Quebras de linha exatas no hero - seleciona variant mobile
+    document.querySelectorAll('.hidden-zqj2su.hidden-72rtr7 .framer-text').forEach(function(el){
+      var txt = el.textContent || '';
+      if (txt.indexOf('formação imersiva') >= 0 && el.innerHTML.indexOf('<br') < 0) {
+        el.innerHTML = 'A formação imersiva e prática<br>em evangelismo e discipulado<br>da Every Home';
+      }
+    });
   }
-
-  // Debounce para evitar loop infinito no MutationObserver
   var debounceTimer = null;
   function debouncedFix(){
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(applyFixes, 200);
+    debounceTimer = setTimeout(applyFixes, 150);
   }
-
   applyFixes();
   document.addEventListener('DOMContentLoaded', applyFixes);
   window.addEventListener('load', applyFixes);
-  [500, 1500, 3000].forEach(function(t){ setTimeout(applyFixes, t); });
-
-  // MutationObserver com debounce - nao trava o browser
+  [300, 800, 1500, 3000].forEach(function(t){ setTimeout(applyFixes, t); });
   var observer = new MutationObserver(debouncedFix);
   observer.observe(document.documentElement, { childList:true, subtree:true });
 })();

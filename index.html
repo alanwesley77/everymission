@@ -283,9 +283,16 @@
       padding-right: 0 !important;
     }
 
-    /* Fix 2: Fotos empilhadas */
+    /* Fix 2: Fotos empilhadas - centralizar cards */
     .framer-15gk0ca {
       overflow: visible !important;
+    }
+    /* Container das 3 fotos: no mobile fica width:1px (bug flex), corrigir */
+    .framer-16g2ikr {
+      width: 340px !important;
+      flex: none !important;
+      align-self: center !important;
+      margin: 0 auto !important;
     }
 
     /* Fix 3: HERO - mover conteudo para baixo + layout em linha */

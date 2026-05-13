@@ -373,33 +373,21 @@
       el.removeAttribute('href');
       el.onclick = function(e){ e.preventDefault(); e.stopPropagation(); return false; };
     });
-    document.querySelectorAll('button.framer-lahdh9:not([data-fixed])').forEach(function(el){
+    document.querySelectorAll('button.framer-lahdh9:not([data-fixed]),div.framer-1yun8xh:not([data-fixed])').forEach(function(el){
       el.setAttribute('data-fixed','1');
       el.style.setProperty('display','none','important');
     });
-    document.querySelectorAll('div.framer-1yun8xh:not([data-fixed])').forEach(function(el){
-      el.setAttribute('data-fixed','1');
-      el.style.setProperty('display','none','important');
-    });
-    // Quebras de linha exatas no hero - seleciona variant mobile
-    document.querySelectorAll('.hidden-zqj2su.hidden-72rtr7 .framer-text').forEach(function(el){
-      var txt = el.textContent || '';
-      if (txt.indexOf('formação imersiva') >= 0 && el.innerHTML.indexOf('<br') < 0) {
-        el.innerHTML = 'A formação imersiva e prática<br>em evangelismo e discipulado<br>da Every Home';
+    // Hero line breaks - JS unicode escapes avoid encoding issues
+    document.querySelectorAll('.framer-1eatc25 .framer-text').forEach(function(el){
+      if (el.innerHTML.indexOf('<br') < 0 && (el.textContent||"").length > 20) {
+        el.innerHTML = 'A forma\u00e7\u00e3o imersiva e pr\u00e1tica<br>em evangelismo e discipulado<br>da Every Home';
       }
     });
-  }
-  var debounceTimer = null;
-  function debouncedFix(){
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(applyFixes, 150);
   }
   applyFixes();
   document.addEventListener('DOMContentLoaded', applyFixes);
   window.addEventListener('load', applyFixes);
-  [300, 800, 1500, 3000].forEach(function(t){ setTimeout(applyFixes, t); });
-  var observer = new MutationObserver(debouncedFix);
-  observer.observe(document.documentElement, { childList:true, subtree:true });
+  [200, 600, 1200, 2500].forEach(function(t){ setTimeout(applyFixes, t); });
 })();
 </script>
 </body>

@@ -334,7 +334,7 @@
       flex: 1 1 0 !important;
       min-width: 0 !important;
       width: 0 !important;
-      max-width: 100% !important;
+      max-width: 270px !important;
       height: auto !important;
       overflow: visible !important;
       min-height: unset !important;
@@ -366,6 +366,7 @@
 <script id="custom-fixes">
 (function(){
   function applyFixes(){
+    // Logo nao clicavel
     document.querySelectorAll('a.framer-dlDLb:not([data-fixed])').forEach(function(el){
       el.setAttribute('data-fixed','1');
       el.style.setProperty('pointer-events','none','important');
@@ -373,21 +374,16 @@
       el.removeAttribute('href');
       el.onclick = function(e){ e.preventDefault(); e.stopPropagation(); return false; };
     });
+    // Hamburger
     document.querySelectorAll('button.framer-lahdh9:not([data-fixed]),div.framer-1yun8xh:not([data-fixed])').forEach(function(el){
       el.setAttribute('data-fixed','1');
       el.style.setProperty('display','none','important');
-    });
-    // Hero line breaks - JS unicode escapes avoid encoding issues
-    document.querySelectorAll('.framer-1eatc25 .framer-text').forEach(function(el){
-      if (el.innerHTML.indexOf('<br') < 0 && (el.textContent||"").length > 20) {
-        el.innerHTML = 'A forma\u00e7\u00e3o imersiva e pr\u00e1tica<br>em evangelismo e discipulado<br>da Every Home';
-      }
     });
   }
   applyFixes();
   document.addEventListener('DOMContentLoaded', applyFixes);
   window.addEventListener('load', applyFixes);
-  [200, 600, 1200, 2500].forEach(function(t){ setTimeout(applyFixes, t); });
+  [300, 1000, 2500].forEach(function(t){ setTimeout(applyFixes, t); });
 })();
 </script>
 </body>

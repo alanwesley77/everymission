@@ -262,7 +262,7 @@
   /* ========== MOBILE FIXES (max 809.98px) ========== */
   @media (max-width:809.98px) {
 
-    /* Fix 1: Experiencia Imersiva - centralizar blocos de feature */
+    /* Fix 1: Experiencia Imersiva */
     .framer-nemtnr {
       align-items: center !important;
       width: 100% !important;
@@ -275,25 +275,42 @@
       overflow: visible !important;
     }
 
-    /* Fix 3: HERO - remover overflow:hidden dos containers pai que cortam o texto */
+    /* Fix 3: HERO - mover conteudo para baixo + layout em linha */
     .framer-b5cd5d {
       overflow: visible !important;
       height: auto !important;
       min-height: 100vh !important;
+      align-items: flex-end !important;
+      padding: 0 20px 64px !important;
     }
     .framer-qa4idr {
       overflow: visible !important;
       height: auto !important;
       width: 100% !important;
-      padding-bottom: 48px !important;
+      padding-bottom: 0 !important;
+      align-items: center !important;
     }
+    /* Bussola + texto lado a lado (linha) */
     .framer-1su2081 {
+      flex-flow: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      align-content: center !important;
+      gap: 12px !important;
       height: auto !important;
       width: 100% !important;
       overflow: visible !important;
     }
+    /* Bussola menor no mobile */
+    .framer-1uinktj {
+      width: 44px !important;
+      height: 44px !important;
+      flex-shrink: 0 !important;
+    }
+    /* Texto ocupa o espaco restante */
     .framer-t3tyof {
-      width: 100% !important;
+      flex: 1 1 0 !important;
+      width: auto !important;
       height: auto !important;
       overflow: visible !important;
       min-height: unset !important;

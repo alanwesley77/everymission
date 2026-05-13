@@ -270,22 +270,52 @@
       padding-right: 16px !important;
     }
 
-    /* Fix 2: Fotos empilhadas - mostrar overflow para nao cortar */
+    /* Fix 2: Fotos empilhadas */
     .framer-15gk0ca {
       overflow: visible !important;
     }
 
-    /* Fix 3: Texto hero - remover dimensoes fixas que cortam o texto */
-    .framer-1eatc25 {
+    /* Fix 3: HERO - remover overflow:hidden dos containers pai que cortam o texto */
+    .framer-b5cd5d {
+      overflow: visible !important;
+      height: auto !important;
+      min-height: 100vh !important;
+    }
+    .framer-qa4idr {
+      overflow: visible !important;
+      height: auto !important;
+      width: 100% !important;
+      padding-bottom: 48px !important;
+    }
+    .framer-1su2081 {
+      height: auto !important;
+      width: 100% !important;
+      overflow: visible !important;
+    }
+    .framer-t3tyof {
       width: 100% !important;
       height: auto !important;
+      overflow: visible !important;
       min-height: unset !important;
     }
-
+    .framer-t3tyof .framer-text,
+    .framer-1mza7av .framer-text {
+      font-size: 20px !important;
+      line-height: 1.3em !important;
+    }
     .framer-1mza7av {
       height: auto !important;
       overflow: visible !important;
       width: 100% !important;
+    }
+    .framer-1eatc25 {
+      width: 100% !important;
+      height: auto !important;
+      min-height: unset !important;
+      overflow: visible !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
     }
   }
 </style>
